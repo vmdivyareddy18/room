@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RoomBook Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>RoomBook</h2>
+            <ul>
+                <li class="active">Dashboard</li>
+                <li>Rooms</li>
+                <li>Bookings</li>
+                <li>New Booking</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+
+            <h1>Dashboard</h1>
+
+            <!-- Cards -->
+            <div class="cards">
+                <div class="card">
+                    <h3>Available Rooms</h3>
+                    <p id="rooms">5</p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Bookings</h3>
+                    <p id="bookings">3</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Guests</h3>
+                    <p id="guests">4</p>
+                </div>
+
+                <div class="card">
+                    <h3>Revenue</h3>
+                    <p>$2003</p>
+                </div>
+            </div>
+
+            <!-- Recent Bookings -->
+            <h2>Recent Bookings</h2>
+
+            <div class="booking">
+                <h4>Executive Suite <span class="confirmed">Confirmed</span></h4>
+                <p>Sarah Johnson | 2026-03-01 to 2026-03-04</p>
+                <span class="price">$897</span>
+            </div>
+
+            <div class="booking">
+                <h4>Conference Hall A <span class="confirmed">Confirmed</span></h4>
+                <p>Tech Corp | 2026-03-02</p>
+                <span class="price">$450</span>
+            </div>
+
+            <div class="booking">
+                <h4>Standard Twin Room <span class="checked">Checked-In</span></h4>
+                <p>Mike Chen | 2026-02-28 to 2026-03-02</p>
+                <span class="price">$258</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
