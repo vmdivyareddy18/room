@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RoomBook - Rooms</title>
+    <link rel="stylesheet" href="rooms.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>RoomBook</h2>
+            <ul>
+                <li>Dashboard</li>
+                <li class="active">Rooms</li>
+                <li>Bookings</li>
+                <li>New Booking</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <h1>Available Rooms</h1>
+
+            <div class="room-grid">
+
+                <!-- Room Card 1 -->
+                <div class="room-card">
+                    <span class="status available">Available</span>
+                    <img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2108b" alt="Room">
+                    <div class="room-info">
+                        <h3>Executive Suite</h3>
+                        <p>Luxurious suite with city view.</p>
+                        <div class="price">$299 / night</div>
+                        <button onclick="bookRoom('Executive Suite')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Room Card 2 -->
+                <div class="room-card">
+                    <span class="status available">Available</span>
+                    <img src="https://images.unsplash.com/photo-1553444836-bc6c8d340ba7" alt="Conference">
+                    <div class="room-info">
+                        <h3>Conference Hall A</h3>
+                        <p>Spacious hall with projector.</p>
+                        <div class="price">$450 / night</div>
+                        <button onclick="bookRoom('Conference Hall A')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Room Card 3 -->
+                <div class="room-card">
+                    <span class="status available">Available</span>
+                    <img src="https://images.unsplash.com/photo-1560067174-89421c0c84f0" alt="Room">
+                    <div class="room-info">
+                        <h3>Standard Twin Room</h3>
+                        <p>Comfortable twin bed room.</p>
+                        <div class="price">$129 / night</div>
+                        <button onclick="bookRoom('Standard Twin Room')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Room Card 4 -->
+                <div class="room-card">
+                    <span class="status occupied">Occupied</span>
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Room">
+                    <div class="room-info">
+                        <h3>Deluxe King Room</h3>
+                        <p>Elegant room with balcony.</p>
+                        <div class="price">$199 / night</div>
+                        <button disabled>Not Available</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="rooms.js"></script>
+</body>
+
+</html>
