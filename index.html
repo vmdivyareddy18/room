@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Professional Login System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            display: none;
+            padding: 100px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .blur {
+            filter: blur(8px);
+        }
+
+        /* MODAL BACKGROUND */
+        .modal {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* LOGIN BOX */
+        .login-container {
+            width: 750px;
+            height: 420px;
+            background: white;
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* LEFT SIDE */
+        .left {
+            width: 50%;
+            background: #f7e9df;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left h3 {
+            color: #ff6b00;
+        }
+
+        /* RIGHT SIDE */
+        .right {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .otp-section {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MAIN WEBSITE -->
+    <div class="main-content" id="mainPage">
+        <h1>🎉 Welcome Divya!</h1>
+        <p>You are successfully logged in.</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+
+        <div class="login-container">
+            <span class="close-btn" onclick="closeModal()">×</span>
+
+            <div class="left">
+                <h3>Secure Login</h3>
+                <p>Enter mobile number to get OTP</p>
+            </div>
+
+            <div class="right">
+                <input type="text" id="mobile" placeholder="Enter 10-digit mobile">
+
+                <button onclick="sendOTP()">Get OTP</button>
+
+                <div class="otp-section" id="otpSection">
+                    <input type="text" id="otpInput" placeholder="Enter OTP">
+                    <button onclick="verifyOTP()">Verify OTP</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        let generatedOTP = "";
+
+        // Auto check login
+        window.onload = function () {
+            if (localStorage.getItem("isLoggedIn") === "true") {
+                showMainPage();
+            } else {
+                document.getElementById("mainPage").classList.add("blur");
+            }
+        }
+
+        // SEND OTP
+        function sendOTP() {
+            let mobile = document.getElementById("mobile").value;
+
+            if (/^[0-9]{10}$/.test(mobile)) {
+                generatedOTP = Math.floor(100000 + Math.random() * 900000);
+                alert("Your OTP is: " + generatedOTP); // Simulation only
+
+                document.getElementById("otpSection").style.display = "block";
+            } else {
+                alert("Enter valid 10-digit mobile number");
+            }
+        }
+
+        // VERIFY OTP
+        function verifyOTP() {
+            let enteredOTP = document.getElementById("otpInput").value;
+
+            if (enteredOTP == generatedOTP) {
+                localStorage.setItem("isLoggedIn", "true");
+                showMainPage();
+            } else {
+                alert("Invalid OTP");
+            }
+        }
+
+        // SHOW MAIN PAGE
+        function showMainPage() {
+            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+            document.getElementById("mainPage").classList.remove("blur");
+        }
+
+        // CLOSE MODAL
+        function closeModal() {
+            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("mainPage").classList.remove("blur");
+        }
+
+        // LOGOUT
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            location.reload();
+        }
+
+    </script>
+
+</body>
+
+</html>
