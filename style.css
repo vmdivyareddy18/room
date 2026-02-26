@@ -13,32 +13,29 @@ body {
     display: flex;
 }
 
-/* Sidebar */
-.sidebar {
-    width: 220px;
-    background-color: #1f2a44;
-    color: white;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.sidebar h2 {
-    margin-bottom: 30px;
-}
-
 .sidebar ul {
     list-style: none;
+    padding: 0;
 }
 
 .sidebar li {
-    padding: 12px;
     margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 6px;
 }
 
-.sidebar li:hover,
-.sidebar .active {
+.sidebar a {
+    display: block;
+    /* IMPORTANT */
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:hover {
+    background-color: #f4a300;
+}
+
+.sidebar a.active {
     background-color: #f4a300;
 }
 
