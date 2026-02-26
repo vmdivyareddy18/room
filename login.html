@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Website with Login Popup</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ================= MAIN WEBSITE ================= */
+        .main-content {
+            display: none;
+            /* Hidden until login */
+            text-align: center;
+            padding: 100px;
+        }
+
+        .main-content h1 {
+            font-size: 40px;
+        }
+
+        /* ================= MODAL BACKGROUND ================= */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ================= LOGIN BOX ================= */
+        .login-container {
+            width: 700px;
+            height: 400px;
+            background: white;
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: popup 0.4s ease;
+        }
+
+        @keyframes popup {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* LEFT SIDE */
+        .left {
+            width: 50%;
+            background: #f7e9df;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left h3 {
+            color: #ff6b00;
+        }
+
+        /* RIGHT SIDE */
+        .right {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .right button {
+            padding: 12px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .right button:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= LOGIN POPUP ================= -->
+    <div class="modal" id="loginModal">
+
+        <div class="login-container">
+
+            <div class="left">
+                <h3>Welcome Back!</h3>
+                <p>Login to continue</p>
+            </div>
+
+            <div class="right">
+                <h2>Login</h2>
+                <input type="text" id="mobile" placeholder="Enter mobile number">
+                <button onclick="login()">Get OTP</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= MAIN WEBSITE ================= -->
+    <div class="main-content" id="mainPage">
+        <h1>🎉 Welcome to My Website</h1>
+        <p>You are successfully logged in!</p>
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+
+        function login() {
+
+            let mobile = document.getElementById("mobile").value;
+
+            if (mobile.length >= 10) {
+                document.getElementById("loginModal").style.display = "none";
+                document.getElementById("mainPage").style.display = "block";
+            }
+            else {
+                alert("Please enter valid mobile number");
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
