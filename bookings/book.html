@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RoomBook - Bookings</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: #1f2a44;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .sidebar li:hover,
+        .sidebar .active {
+            background: #f4a300;
+        }
+
+        /* Main */
+        .main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Filter Buttons */
+        .filters {
+            margin-bottom: 20px;
+        }
+
+        .filters button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .filters button.active-filter {
+            background: #1f2a44;
+            color: white;
+        }
+
+        /* Booking Card */
+        .booking {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .booking h3 {
+            margin-bottom: 5px;
+        }
+
+        .price {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-weight: bold;
+            color: #f4a300;
+        }
+
+        .status {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .confirmed {
+            background: orange;
+        }
+
+        .checked {
+            background: green;
+        }
+
+        .completed {
+            background: gray;
+        }
+
+        .cancelled {
+            background: red;
+        }
+
+        .cancel-btn {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            padding: 5px 12px;
+            border: 1px solid red;
+            background: white;
+            color: red;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cancel-btn:hover {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>RoomBook</h2>
+            <ul>
+                <li>Dashboard</li>
+                <li>Rooms</li>
+                <li class="active">Bookings</li>
+                <li>New Booking</li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <div class="main">
+
+            <h1>Bookings</h1>
+
+            <!-- Filters -->
+            <div class="filters">
+                <button onclick="filterBookings('all')" class="active-filter">All</button>
+                <button onclick="filterBookings('confirmed')">Confirmed</button>
+                <button onclick="filterBookings('checked')">Checked-In</button>
+                <button onclick="filterBookings('completed')">Completed</button>
+                <button onclick="filterBookings('cancelled')">Cancelled</button>
+            </div>
+
+            <!-- Booking List -->
+            <div class="booking" data-status="confirmed">
+                <h3>Executive Suite
+                    <span class="status confirmed">Confirmed</span>
+                </h3>
+                <p>Sarah Johnson | 2026-03-01 → 2026-03-04</p>
+                <div class="price">$897</div>
+                <button class="cancel-btn" onclick="cancelBooking(this)">Cancel</button>
+            </div>
+
+            <div class="booking" data-status="confirmed">
+                <h3>Conference Hall A
+                    <span class="status confirmed">Confirmed</span>
+                </h3>
+                <p>Tech Corp | 2026-03-02</p>
+                <div class="price">$450</div>
+                <button class="cancel-btn" onclick="cancelBooking(this)">Cancel</button>
+            </div>
+
+            <div class="booking" data-status="checked">
+                <h3>Standard Twin Room
+                    <span class="status checked">Checked-In</span>
+                </h3>
+                <p>Mike Chen | 2026-02-28 → 2026-03-02</p>
+                <div class="price">$258</div>
+            </div>
+
+            <div class="booking" data-status="completed">
+                <h3>Deluxe King Room
+                    <span class="status completed">Completed</span>
+                </h3>
+                <p>Emma Wilson | 2026-02-25 → 2026-02-27</p>
+                <div class="price">$398</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        function filterBookings(status) {
+            let bookings = document.querySelectorAll(".booking");
+            let buttons = document.querySelectorAll(".filters button");
+
+            buttons.forEach(btn => btn.classList.remove("active-filter"));
+            event.target.classList.add("active-filter");
+
+            bookings.forEach(booking => {
+                if (status === "all") {
+                    booking.style.display = "block";
+                } else {
+                    if (booking.dataset.status === status) {
+                        booking.style.display = "block";
+                    } else {
+                        booking.style.display = "none";
+                    }
+                }
+            });
+        }
+
+        function cancelBooking(button) {
+            let bookingCard = button.parentElement;
+            bookingCard.dataset.status = "cancelled";
+
+            let statusSpan = bookingCard.querySelector(".status");
+            statusSpan.textContent = "Cancelled";
+            statusSpan.className = "status cancelled";
+
+            button.remove();
+        }
+
+    </script>
+
+</body>
+
+</html>
