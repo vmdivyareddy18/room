@@ -128,28 +128,41 @@
 
 
     <!-- ================= MAIN WEBSITE ================= -->
-    <div class="main-content" id="mainPage">
-        <h1>🎉 Welcome to My Website</h1>
-        <p>You are successfully logged in!</p>
-    </div>
+    <div class="main-content" id="mainPage"></div>
+    <window.location.href="index1.html" ;>
+        </window.location.href>
+        <!--=================JAVASCRIPT=================-->
+        <script>
 
+            let generatedOTP = "";
 
-    <!-- ================= JAVASCRIPT ================= -->
-    <script>
-        function login() {
+            function login() {
 
-            let mobile = document.getElementById("mobile").value;
+                let mobile = document.getElementById("mobile").value;
 
-            if (mobile.length >= 10) {
+                if (mobile.length == 10) {
 
-                // Redirect to main page
-                window.location.href = "dashboard.html";
+                    // Generate 4 digit OTP
+                    generatedOTP = Math.floor(1000 + Math.random() * 9000);
 
-            } else {
-                alert("Please enter valid mobile number");
+                    alert("Your OTP is: " + generatedOTP);  // For testing
+
+                    let userOTP = prompt("Enter the OTP");
+
+                    if (userOTP == generatedOTP) {
+
+                        alert("Login Successful!");
+                        window.location.href = "dashboard.html";
+
+                    } else {
+                        alert("Wrong OTP!");
+                    }
+
+                } else {
+                    alert("Please enter valid 10 digit mobile number");
+                }
             }
-        }
-    </script>
-</body>
+
+        </script>
 
 </html>
