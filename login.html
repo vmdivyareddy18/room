@@ -136,23 +136,20 @@
 
     <!-- ================= JAVASCRIPT ================= -->
     <script>
-
         function login() {
 
             let mobile = document.getElementById("mobile").value;
 
             if (mobile.length >= 10) {
-                document.getElementById("loginModal").style.display = "none";
-                document.getElementById("mainPage").style.display = "block";
-            }
-            else {
+
+                // Redirect to main page
+                window.location.href = "dashboard.html";
+
+            } else {
                 alert("Please enter valid mobile number");
             }
-
         }
-
     </script>
-
 </body>
 
 </html>
