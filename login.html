@@ -136,32 +136,6 @@
 
             let generatedOTP = "";
 
-            function login() {
-
-                let mobile = document.getElementById("mobile").value;
-
-                if (mobile.length == 10) {
-
-                    // Generate 4 digit OTP
-                    generatedOTP = Math.floor(1000 + Math.random() * 9000);
-
-                    alert("Your OTP is: " + generatedOTP);  // For testing
-
-                    let userOTP = prompt("Enter the OTP");
-
-                    if (userOTP == generatedOTP) {
-
-                        alert("Login Successful!");
-                        window.location.href = "dashboard.html";
-
-                    } else {
-                        alert("Wrong OTP!");
-                    }
-
-                } else {
-                    alert("Please enter valid 10 digit mobile number");
-                }
-            }
 
         </script>
 
