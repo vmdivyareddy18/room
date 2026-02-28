@@ -124,11 +124,3 @@ button:disabled {
     font-size: 12px;
     color: white;
 }
-
-.available {
-    background: green;
-}
-
-.occupied {
-    background: red;
-}
