@@ -37,6 +37,14 @@ body {
     border-radius: 6px;
 }
 
+.sidebar a:hover,
+a {
+    color: #dddddd;
+    text-decoration: none;
+    /* light white on hover */
+}
+
+
 .sidebar li:hover,
 .sidebar .active {
     background: #f4a300;

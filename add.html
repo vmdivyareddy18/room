@@ -37,8 +37,10 @@
             list-style: none;
         }
 
-        .sidebar a:hover {
+        .sidebar a:hover,
+        a {
             color: #dddddd;
+            text-decoration: none;
             /* light white on hover */
         }
 
@@ -53,6 +55,7 @@
         .sidebar .active {
             background: #f4a300;
         }
+
 
         /* Main */
         .main {
@@ -133,7 +136,7 @@
             <ul>
                 <li><a href="index1.html">Dashboard</a></li>
                 <li><a href="rooms.html">Rooms</a></li>
-                <li><a href="book.html">Bookings</a></li>
+                <li class="active"><a href="book.html">Bookings</a></li>
                 <li><a href="add.html">New Booking</a></li>
             </ul>
         </div>

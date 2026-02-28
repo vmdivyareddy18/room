@@ -43,6 +43,13 @@ body {
     border-radius: 6px;
 }
 
+.sidebar a:hover,
+a {
+    color: #dddddd;
+    text-decoration: none;
+    /* light white on hover */
+}
+
 .sidebar li:hover,
 .sidebar .active {
     background-color: #f4a300;

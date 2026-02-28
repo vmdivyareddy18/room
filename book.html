@@ -44,6 +44,13 @@
             cursor: pointer;
         }
 
+        .sidebar a:hover,
+        a {
+            color: #dddddd;
+            text-decoration: none;
+            /* light white on hover */
+        }
+
         .sidebar li:hover,
         .sidebar .active {
             background: #f4a300;
@@ -151,13 +158,12 @@
         <div class="sidebar">
             <h2>RoomBook</h2>
             <ul>
-                <li>Dashboard</li>
-                <li>Rooms</li>
-                <li class="active">Bookings</li>
-                <li>New Booking</li>
+                <li><a href="index1.html">Dashboard</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li class="active"><a href="book.html">Bookings</a></li>
+                <li><a href="add.html">New Booking</a></li>
             </ul>
         </div>
-
         <!-- Main -->
         <div class="main">
 
