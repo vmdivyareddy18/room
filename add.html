@@ -258,29 +258,6 @@
 
         </div>
     </div>
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Book Room</h2>
-
-            <form id="bookingForm">
-                <label>Name:</label>
-                <input type="text" required>
-
-                <label>Email:</label>
-                <input type="email" required>
-
-                <label>Check-in Date:</label>
-                <input type="date" required>
-
-                <label>Check-out Date:</label>
-                <input type="date" required>
-
-                <button type="submit" class="confirm-btn">Confirm Booking</button>
-            </form>
-        </div>
-    </div>
 
     <script>
 
@@ -305,30 +282,6 @@
         });
 
 
-    </script>
-    <script>
-        function openModal() {
-            document.getElementById("bookingModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("bookingModal").style.display = "none";
-        }
-
-        // Close when clicking outside
-        window.onclick = function (event) {
-            let modal = document.getElementById("bookingModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Form Submit
-        document.getElementById("bookingForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("Room Booked Successfully!");
-            closeModal();
-        });
     </script>
 
 </body>
