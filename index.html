@@ -132,20 +132,30 @@
                     }
                 }
 
-                // Send OTP
-                function sendOTP() {
-                    let mobile = document.getElementById("mobile").value;
+                    < div id = "otpArea" style = "display:none;" >
+                        <input type="text" id="otpInput" placeholder="Enter OTP">
+                            <button onclick="verifyOTP()">Verify OTP</button>
+                            <div class="timer" id="timer"></div>
+                            <div class="resend" id="resend" onclick="resendOTP()">Resend OTP</div>
+                        </div>
+        </div >
+    </div >
 
-                    if (/^[0-9]{10}$/.test(mobile)) {
-                        generatedOTP = Math.floor(100000 + Math.random() * 900000);
-                        alert("Demo OTP: " + generatedOTP);
 
-                        document.getElementById("otpArea").style.display = "block";
-                        startTimer();
-                    } else {
-                        alert("Invalid mobile number");
+                    // Send OTP
+                    function sendOTP() {
+                        let mobile = document.getElementById("mobile").value;
+
+                        if (/^[0-9]{10}$/.test(mobile)) {
+                            generatedOTP = Math.floor(100000 + Math.random() * 900000);
+                            alert("Demo OTP: " + generatedOTP);
+
+                            document.getElementById("otpArea").style.display = "block";
+                            startTimer();
+                        } else {
+                            alert("Invalid mobile number");
+                        }
                     }
-                }
 
                 // Timer
                 function startTimer() {
