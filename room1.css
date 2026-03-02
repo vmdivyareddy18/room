@@ -33,21 +33,17 @@ body {
 .sidebar li {
     padding: 12px;
     margin-bottom: 10px;
-    cursor: pointer;
     border-radius: 6px;
 }
-
-.sidebar a:hover,
-a {
-    color: #dddddd;
-    text-decoration: none;
-    /* light white on hover */
-}
-
 
 .sidebar li:hover,
 .sidebar .active {
     background: #f4a300;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
 }
 
 /* Main */
@@ -81,18 +77,9 @@ a {
     padding: 20px;
 }
 
-.room-info h3 {
-    margin-bottom: 10px;
-}
-
-.room-info p {
-    color: gray;
-    margin-bottom: 10px;
-}
-
 .price {
     font-weight: bold;
-    margin-bottom: 15px;
+    margin: 10px 0;
     color: #f4a300;
 }
 
@@ -109,12 +96,7 @@ button:hover {
     background: #f4a300;
 }
 
-button:disabled {
-    background: gray;
-    cursor: not-allowed;
-}
-
-/* Status Badge */
+/* Status */
 .status {
     position: absolute;
     top: 15px;
@@ -129,23 +111,16 @@ button:disabled {
     background: green;
 }
 
-.occupied {
-    background: red;
-}
-
-/* Modal Background */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
     z-index: 1000;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Modal Box */
 .modal-content {
     background: white;
     width: 400px;
@@ -155,47 +130,21 @@ button:disabled {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: slideDown 0.3s ease;
 }
 
 .modal-content input {
     width: 100%;
     padding: 8px;
     margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
 }
 
 .confirm-btn {
     width: 100%;
-    padding: 10px;
-    background: #1e293b;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    background: #1f2a44;
 }
 
-.confirm-btn:hover {
-    background: #0f172a;
-}
-
-/* Close Button */
 .close {
     float: right;
     font-size: 22px;
     cursor: pointer;
-}
-
-/* Animation */
-@keyframes slideDown {
-    from {
-        transform: translate(-50%, -60%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
 }
