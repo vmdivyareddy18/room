@@ -123,6 +123,73 @@
             color: green;
             font-weight: bold;
         }
+
+        /* Modal Background */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: white;
+            width: 400px;
+            padding: 25px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: slideDown 0.3s ease;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            padding: 10px;
+            background: #1e293b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .confirm-btn:hover {
+            background: #0f172a;
+        }
+
+        /* Close Button */
+        .close {
+            float: right;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* Animation */
+        @keyframes slideDown {
+            from {
+                transform: translate(-50%, -60%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -237,6 +304,31 @@
             document.getElementById("bookingForm").reset();
         });
 
+
+    </script>
+    <script>
+        function openModal() {
+            document.getElementById("bookingModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("bookingModal").style.display = "none";
+        }
+
+        // Close when clicking outside
+        window.onclick = function (event) {
+            let modal = document.getElementById("bookingModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Form Submit
+        document.getElementById("bookingForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Room Booked Successfully!");
+            closeModal();
+        });
     </script>
 
 </body>
